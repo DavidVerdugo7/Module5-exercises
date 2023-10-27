@@ -1,0 +1,48 @@
+<html lang="en">
+  <head>
+    <title>Calculator</title>
+  </head>
+  <body>
+    <div>
+      <h1>Result</h1>
+      <span id="result"></span>
+    </div>
+
+    <div><span id="addition"></span> add</div>
+    <br />
+    <div><span id="subtraction"></span> substract</div>
+    <br />
+    <div><span id="multiplication"></span> multiply</div>
+    <br />
+    <div><span id="division"></span> divide</div>
+  </body>
+
+  <script>
+    const num1 = 100;
+    const num2 = 10;
+
+    fetch(`/calculator/add?num1=${num1}&num2=${num2}`)
+      .then((response) => response.json())
+      .then((data) => {
+        document.getElementById("addition").innerHTML = data.result;
+      });
+
+    fetch(`/calculator/substract?num1=${num1}&num2=${num2}`)
+      .then((response) => response.json())
+      .then((data) => {
+        document.getElementById("subtraction").innerHTML = data.result;
+      });
+
+    fetch(`/calculator/multiply?num1=${num1}&num2=${num2}`)
+      .then((response) => response.json())
+      .then((data) => {
+        document.getElementById("multiplication").innerHTML = data.result;
+      });
+
+    fetch(`/calculator/divide?num1=${num1}&num2=${num2}`)
+      .then((response) => response.json())
+      .then((data) => {
+        document.getElementById("division").innerHTML = data.result;
+      });
+  </script>
+</html>
