@@ -21,25 +21,29 @@
     const num1 = 100;
     const num2 = 10;
 
-    fetch(`/calculator/add?num1=${num1}&num2=${num2}`)
+    fetch(`http://localhost:3000/calculator/add?num1=${num1}&num2=${num2}l`)
       .then((response) => response.json())
       .then((data) => {
         document.getElementById("addition").innerHTML = data.result;
       });
 
-    fetch(`/calculator/substract?num1=${num1}&num2=${num2}`)
+    fetch(
+      `http://localhost:3000/calculator/substract?num1=${num1}&num2=${num2}l`
+    )
       .then((response) => response.json())
       .then((data) => {
         document.getElementById("subtraction").innerHTML = data.result;
       });
 
-    fetch(`/calculator/multiply?num1=${num1}&num2=${num2}`)
+    fetch(
+      `http://localhost:3000/calculator/multiply?num1=${num1}&num2=${num2}l`
+    )
       .then((response) => response.json())
       .then((data) => {
         document.getElementById("multiplication").innerHTML = data.result;
       });
 
-    fetch(`/calculator/divide?num1=${num1}&num2=${num2}`)
+    fetch(`http://localhost:3000/calculator/divide?num1=${num1}&num2=${num2}l`)
       .then((response) => response.json())
       .then((data) => {
         document.getElementById("division").innerHTML = data.result;
