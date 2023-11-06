@@ -1,0 +1,101 @@
+<html lang="en">
+  <head>
+    <title>Calculator Example</title>
+  </head>
+  <body>
+    <h1>calculator</h1>
+
+    <input id="num1" />
+
+    <li>
+      <br />
+      <button onClick="add()">+</button>
+      <button onClick="subtract()">-</button>
+      <button onClick="multiply()">*</button>
+      <button onClick="divide()">/</button>
+      <br />
+    </li>
+
+    <input id="num2" />
+
+    <h4>🟰</h4>
+    <span id="result"></span>
+
+    <div><button id="resetval">🔄</button></div>
+
+    <script>
+      //creating variables
+      const number1Input = document.getElementById("num1");
+      const number2Input = document.getElementById("num2");
+
+      const resultSpan = document.getElementById("result");
+
+      const resetbutton = document.getElementById("resetval");
+
+      //add
+      // I get : blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.
+      const add = () => {
+        let num1 = document.getElementById("num1").value;
+        let num2 = document.getElementById("num2").value;
+        fetch(`/calculator/add?num1=${num1}&num2=${num2}`)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data.result);
+            document.getElementById(
+              "result"
+            ).innerHTML = `Addition operation: ${data.result}`;
+          });
+      };
+
+      // subtract
+      const subtract = () => {
+        let num1 = document.getElementById("num1").value;
+        let num2 = document.getElementById("num2").value;
+        fetch(`/calculator/subtract?num1=${num1}&num2=${num2}`)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data.result);
+            document.getElementById(
+              "result"
+            ).innerHTML = `Subtraction operation: ${data.result}`;
+          });
+      };
+      //multiply
+
+      const multiply = () => {
+        let num1 = document.getElementById("num1").value;
+        let num2 = document.getElementById("num2").value;
+        fetch(`/calculator/multiply?num1=${num1}&num2=${num2}`)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data.result);
+            document.getElementById(
+              "result"
+            ).innerHTML = `Multiplication operation: ${data.result}`;
+          });
+      };
+
+      //divide
+
+      const divide = () => {
+        let num1 = document.getElementById("num1").value;
+        let num2 = document.getElementById("num2").value;
+        fetch(`/calculator/divide?num1=${num1}&num2=${num2}`)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data.result);
+            document.getElementById(
+              "result"
+            ).innerHTML = `Division operation: ${data.result}`;
+          });
+      };
+
+      // event to reset button:
+      resetbutton.addEventListener("click", () => {
+        number1Input.value = "";
+        number2Input.value = "";
+        resultSpan.textContent = "";
+      });
+    </script>
+  </body>
+</html>
