@@ -1,0 +1,86 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Rick and Morty mini project",
+    "description": "My User Project Application API",
+    "license": {
+      "name": "API Rick and Morty",
+      "url": "http://localhost:3000/characters.html"
+    }
+  },
+  "host": "localhost:3000",
+  "basePath": "characters.html",
+  "tags": [
+    {
+      "name": "Rick and Morty API",
+      "description": "API to fetch characters of Rick and Morty"
+    }
+  ],
+  "schemes": ["http"],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+
+  "paths": {
+    "/api/characters": {
+      "get": {
+        "tags": ["Rick and Morty API"],
+        "summary": "Obtiene la lista de personajes",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "example": []
+              }
+            }
+          },
+          "500": {
+            "description": "Error server"
+          }
+        }
+      }
+    },
+    "/api/characters/search": {
+      "get": {
+        "tags": ["Rick and Morty API"],
+        "summary": "Filtra personajes por nombre, especie, género y estado",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "character name"
+          },
+          {
+            "name": "species",
+            "in": "query",
+            "description": "character species"
+          },
+          {
+            "name": "gender",
+            "in": "query",
+            "description": "character genre"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "description": "character status"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "example": []
+              }
+            }
+          },
+          "500": {
+            "description": "server error"
+          }
+        }
+      }
+    }
+  }
+}
