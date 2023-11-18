@@ -10,7 +10,7 @@
     }
   },
   "host": "localhost:3000",
-  "basePath": "characters.html",
+  "basePath": "/",
   "tags": [
     {
       "name": "Rick and Morty API",
